@@ -49,7 +49,7 @@ section{position:relative;padding:80px 0;overflow:hidden}
 .glow:before,.glow:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);opacity:.28;pointer-events:none}
 .glow:before{background:var(--teal-500);left:-200px;bottom:-200px}
 .glow:after{background:var(--periwinkle-400);right:-220px;top:-160px;opacity:.2}
-.grid{background-image:linear-gradient(var(--ink-700) 1px,transparent 1px),linear-gradient(90deg,var(--ink-700) 1px,transparent 1px);background-size:72px 72px;background-position:center}
+.grid{background-image:linear-gradient(var(--ink-700) 1px,transparent 1px),linear-gradient(90deg,var(--ink-700) 1px,transparent 1px);background-size:72px 72px;background-position:0 0}
 .grid>.gridmask{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,transparent 20%,var(--ink-900) 80%);pointer-events:none}
 .wrap{position:relative;z-index:1}
 h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
@@ -316,16 +316,16 @@ footer ul a{font-size:14px;text-decoration:none;color:rgba(247,245,240,.8);displ
 footer ul a:hover{color:var(--mint-300)}
 .copy{font-size:13px;color:rgba(247,245,240,.7)}
 /* mobile bar */
-.mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;display:flex;gap:10px;padding:8px;background:rgba(38,50,56,.82);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(127,168,188,.25);border-radius:50px;box-shadow:0 14px 36px rgba(0,0,0,.4),0 2px 6px rgba(0,0,0,.2);transition:width .4s cubic-bezier(.34,1.56,.64,1),padding .4s cubic-bezier(.34,1.56,.64,1),gap .4s cubic-bezier(.34,1.56,.64,1),left .4s cubic-bezier(.34,1.56,.64,1),right .4s cubic-bezier(.34,1.56,.64,1)}
-.mbar.collapsed{width:56px;padding:0;gap:0;border-radius:50%;left:12px;right:auto}
+.mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;display:flex;gap:10px;padding:8px;background:rgba(38,50,56,.82);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(127,168,188,.25);border-radius:50px;box-shadow:0 14px 36px rgba(0,0,0,.4),0 2px 6px rgba(0,0,0,.2);transition:width .4s cubic-bezier(.34,1.56,.64,1),padding .4s cubic-bezier(.34,1.56,.64,1),gap .4s cubic-bezier(.34,1.56,.64,1),left .4s cubic-bezier(.34,1.56,.64,1),right .4s cubic-bezier(.34,1.56,.64,1);transition-delay:0s}
+.mbar.collapsed{width:56px;padding:0;gap:0;border-radius:50%;left:12px;right:auto;transition-delay:0.3s}
 .mbar .btn{flex:1;border-radius:50px;transition:opacity .3s,transform .3s}
 .mbar .ic{flex:none;width:48px;padding:0;background:var(--ink-800);color:var(--paper-50);border:1px solid var(--ink-700);border-radius:50%}
-.mbar .close-btn{position:absolute;top:-8px;right:-8px;width:24px;height:24px;background:var(--ink-900);border:2px solid var(--teal-500);border-radius:50%;cursor:pointer;display:grid;place-items:center;color:var(--white);font-size:14px;font-weight:700;transition:opacity .3s,transform .3s;z-index:10}
-.mbar.collapsed .close-btn{opacity:0;transform:scale(0);pointer-events:none}
-.mbar .main-btns{display:flex;gap:10px;flex:1;transition:opacity .3s,transform .3s}
-.mbar.collapsed .main-btns{opacity:0;transform:scale(0.8);pointer-events:none}
-.mbar .chat-btn{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:scale(0);transition:opacity .3s,transform .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;background:transparent;border:0;color:var(--paper-50)}
-.mbar.collapsed .chat-btn{opacity:1;transform:scale(1);pointer-events:auto}
+.mbar .close-btn{position:absolute;top:-8px;right:-8px;width:24px;height:24px;background:var(--ink-900);border:2px solid var(--teal-500);border-radius:50%;cursor:pointer;display:grid;place-items:center;color:var(--white);font-size:14px;font-weight:700;transition:opacity .3s,transform .3s;z-index:10;transition-delay:0s}
+.mbar.collapsed .close-btn{opacity:0;transform:scale(0);pointer-events:none;transition-delay:0s}
+.mbar .main-btns{display:flex;gap:10px;flex:1;transition:opacity .3s,transform .3s;transition-delay:0.4s}
+.mbar.collapsed .main-btns{opacity:0;transform:scale(0.8);pointer-events:none;transition-delay:0s}
+.mbar .chat-btn{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:scale(0);transition:opacity .3s,transform .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;background:transparent;border:0;color:var(--paper-50);transition-delay:0.4s}
+.mbar.collapsed .chat-btn{opacity:1;transform:scale(1);pointer-events:auto;transition-delay:0.3s}
 .mbar .chat-btn svg{width:24px;height:24px}
 .mbar svg{width:20px;height:20px;fill:currentColor}
 /* reveal */
@@ -491,11 +491,11 @@ footer ul a:hover{color:var(--mint-300)}
    <article class="tc"><q>We went from invisible on Google Maps to the top 3 in our area. The calls started coming in within weeks.</q>
     <div class="tf"><span class="av" aria-hidden="true">AO</span><div class="who2"><b>Adeola Okonkwo</b><span>Operations Manager, Swift Freight Logistics</span></div></div></article>
    <article class="tc"><q>Our Google Business Profile was suspended for months. They got it reinstated and we're back to getting daily enquiries.</q>
-    <div class="tf"><span class="av" aria-hidden="true">CI</span><div class="who2"><b>Chinedu Ibe</b><span>Founder, Lagos Cargo Express</span></div></div></article>
+    <div class="tf"><span class="av" aria-hidden="true">JM</span><div class="who2"><b>James Miller</b><span>Founder, Texas Cargo Express</span></div></div></article>
    <article class="tc"><q>The automated follow-up system changed everything. We no longer lose leads because someone forgot to reply.</q>
-    <div class="tf"><span class="av" aria-hidden="true">FM</span><div class="who2"><b>Fatima Mohammed</b><span>Director, NorthGate Haulage</span></div></div></article>
+    <div class="tf"><span class="av" aria-hidden="true">SK</span><div class="who2"><b>Sarah Kim</b><span>Director, Seoul Logistics Co.</span></div></div></article>
    <article class="tc"><q>Professional, fast, and they actually understand the logistics industry. Highly recommended for any freight business.</q>
-    <div class="tf"><span class="av" aria-hidden="true">EA</span><div class="who2"><b>Emeka Adebayo</b><span>CEO, Prime Courier Services</span></div></div></article>
+    <div class="tf"><span class="av" aria-hidden="true">RB</span><div class="who2"><b>Raj Bhatia</b><span>CEO, Mumbai Prime Transport</span></div></div></article>
   </div>
   <div class="tm-ctl rv"><div class="pbar" aria-hidden="true"><i id="tmbar"></i></div><div class="arr"><button type="button" id="tmprev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="tmnext" aria-label="Next testimonial"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
  </div>
